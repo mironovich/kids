@@ -14,14 +14,18 @@
   let score = 0
   let tries = ROUNDS + 1
 
+  function play() {
+    score = 0
+    tries = ROUNDS + 1
+    getTask()
+  }
+
   function getTask() {
     function getRandomInt(max) {
       return Math.floor(Math.random() * max)
     }
 
     value = ''
-    score = 0
-    tries = ROUNDS + 1
     tries--
     clearTimeout(timer)
     if (tries) timer = setTimeout(getTask, TIME)
@@ -64,7 +68,7 @@
           Молодчина!
         {/if}
       {/if}
-      <button class="play-button" on:click={getTask}>Сыграем!</button>
+      <button class="play-button" on:click={play}>Сыграем!</button>
     </div>
   {/if}
 </div>
