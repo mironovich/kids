@@ -6,3 +6,5 @@ node_modules
 
 .firebaserc
 .firebase
+
+package-lock.json
