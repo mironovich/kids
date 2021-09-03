@@ -1,5 +1,8 @@
 <ul>
   <li>
+    <a href="/multiplication">Умножалка</a>
+  </li>
+  <li>
     <a href="/count">Считалка</a>
   </li>
   <li>
