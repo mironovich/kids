@@ -39,11 +39,11 @@
     answer = a * b
   }
 
-  function handleSubmit() {
+  function handleSelect() {
     if (parseInt(value) === answer) {
       score++
+      getTask()
     }
-    getTask()
   }
 </script>
 
@@ -55,7 +55,7 @@
     <h1>{task}</h1>
     <h1 style="color: {value ? '#333' : '#ccc'}">{value || '?'}</h1>
 
-    <Numpad bind:value on:submit={handleSubmit} />
+    <Numpad bind:value on:select={handleSelect} />
   {:else}
     <div id="result">
       {#if score}

@@ -2,7 +2,10 @@
   import { createEventDispatcher } from 'svelte'
   export let value = ''
   const dispatch = createEventDispatcher()
-  const select = (num) => () => (value += num)
+  const select = (num) => () => {
+    value += num
+    dispatch('select')
+  }
   const clear = () => (value = value.slice(0, -1))
   const submit = () => dispatch('submit')
 </script>
@@ -18,9 +21,11 @@
   <button on:click={select(8)}>8</button>
   <button on:click={select(9)}>9</button>
 
-  <button disabled={!value} on:click={clear}>⬅️</button>
+  <button on:click={select('-')}>-</button>
+
+  <!-- <button disabled={!value} on:click={submit}>🆗</button> -->
   <button on:click={select(0)}>0</button>
-  <button disabled={!value} on:click={submit}>🆗</button>
+  <button disabled={!value} on:click={clear}>⬅️</button>
 </div>
 
 <style>

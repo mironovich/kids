@@ -1,7 +1,7 @@
 <script>
   const MIN_NUMBER = 2
   const MAX_NUMBER = 99
-  const SECONDS_PER_TASK = 10
+  const SECONDS_PER_TASK = 12
   const ROUNDS = 10
 
   import Numpad from '$lib/Numpad.svelte'
@@ -41,11 +41,12 @@
     answer = sign === '+' ? a + b : a - b
   }
 
-  function handleSubmit() {
+  function handleSelect() {
+    console.log('checking')
     if (parseInt(value) === answer) {
       score++
+      getTask()
     }
-    getTask()
   }
 </script>
 
@@ -57,7 +58,7 @@
     <h1>{task}</h1>
     <h1 style="color: {value ? '#333' : '#ccc'}">{value || '?'}</h1>
 
-    <Numpad bind:value on:submit={handleSubmit} />
+    <Numpad bind:value on:select={handleSelect} />
   {:else}
     <div id="result">
       {#if score}
