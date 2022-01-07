@@ -1,7 +1,7 @@
 <script>
   const MIN_NUMBER = 2
-  const MAX_NUMBER = 12
-  const SECONDS_PER_TASK = 6
+  const MAX_NUMBER = 99
+  const SECONDS_PER_TASK = 10
   const ROUNDS = 10
 
   import Numpad from '$lib/Numpad.svelte'
@@ -32,8 +32,10 @@
     if (tries) timer = setTimeout(getTask, SECONDS_PER_TASK * 1000)
 
     const a = getRandomInt(MIN_NUMBER, MAX_NUMBER)
-    const b = getRandomInt(MIN_NUMBER, MAX_NUMBER)
-    const sign = a >= b ? (getRandomInt(0, 1) ? '-' : '+') : '+'
+    const b = getRandomInt(MIN_NUMBER, a > 50 ? MAX_NUMBER - 50 : MAX_NUMBER)
+    const sign = getRandomInt(0, 1) ? '-' : '+'
+    // exclude negative result
+    // const sign = a >= b ? (getRandomInt(0, 1) ? '-' : '+') : '+'
 
     task = `${a} ${sign} ${b}`
     answer = sign === '+' ? a + b : a - b

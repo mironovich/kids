@@ -1,7 +1,7 @@
 <script>
-  const MIN_NUMBER = 1
-  const MAX_NUMBER = 5
-  const SECONDS_PER_TASK = 7
+  const MIN_NUMBER = 2
+  const MAX_NUMBER = 10
+  const SECONDS_PER_TASK = 8
   const ROUNDS = 10
 
   import Numpad from '$lib/Numpad.svelte'
